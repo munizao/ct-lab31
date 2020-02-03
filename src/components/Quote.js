@@ -8,11 +8,19 @@ export default class Quote extends React.Component {
     image: ''
   };
 
-  handleClick = () => {
-    quote()
+  fetch = () => {
+    return quote()
       .then((res) => {
         this.setState(res);
-      });
+      });    
+  }
+
+  handleClick = () => {
+    this.fetch();
+  }
+
+  componentDidMount() {
+    this.fetch();
   }
 
   render() {
