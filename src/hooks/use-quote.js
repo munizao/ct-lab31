@@ -1,10 +1,10 @@
-import { quote } from '../services/futurama-api';
+import { quoteAPI } from '../services/futurama-api';
 
 import { useState, useEffect } from 'react';
 const useQuote = () => {
   const [quoteObj, setQuoteObj] = useState({ quote: '', image: '', character: '' });
   const fetchQuote = () => {
-    return quote()
+    return quoteAPI()
       .then((res) => {
         setQuoteObj(res);
       });  
