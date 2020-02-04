@@ -1,28 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { quote } from '../services/futurama-api';
+import React from 'react';
+import useQuote from '../hooks/use-quote';
 import styles from './Quote.css';
 
 const Quote = () => {
-  const [quoteObj, setQuoteObj] = useState({ quote: '', image: '', character: '' });
-  useEffect(() => {
-    fetch();    
-  }, []);
-
-  const fetch = () => {
-    return quote()
-      .then((res) => {
-        setQuoteObj(res);
-      });  
-  };
-
-  const handleClick = () => {
-    fetch();
-  };
+  const { quoteObj, fetchQuote } = useQuote();
 
   return (
     <div className = {styles.Quote}>
       <img src={quoteObj.image} /><p>{quoteObj.quote}</p><p>{quoteObj.character}</p>
-      <button onClick={handleClick}>Get new Quote</button>
+      <button onClick={fetchQuote}>Get new Quote</button>
     </div>
   );
 };
