@@ -3,3 +3,12 @@ export const quoteAPI = () => {
     .then(res => res.json())
     .then(res => res[0]);
 };
+
+export const charactersAPI = () => {
+  return fetch('http://futuramaapi.herokuapp.com/api/v2/characters')
+    .then(res => res.json()) // The keys on this API are all capitalized, which is stupid.
+    .then(characters => {
+      return characters.map(character => Object.fromEntries(Object.entries(character)
+        .map(entry => [entry[0].toLowerCase(), entry[1]]))); 
+    });
+};
