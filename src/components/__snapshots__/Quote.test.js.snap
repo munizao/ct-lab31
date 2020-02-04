@@ -14,3 +14,18 @@ exports[`Quote component renders Quote 1`] = `
   </button>
 </div>
 `;
+
+exports[`Quote component renders Quote 2`] = `
+<div>
+  <img
+    src=""
+  />
+  <p />
+  <p />
+  <button
+    onClick={[Function]}
+  >
+    Get new Quote
+  </button>
+</div>
+`;
