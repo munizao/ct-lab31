@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Quote component renders Quote 1`] = `
+<div>
+  <img
+    src=""
+  />
+  <p />
+  <p />
+  <button
+    onClick={[Function]}
+  >
+    Get new Quote
+  </button>
+</div>
+`;
+
+exports[`Quote component renders Quote 2`] = `
+<div>
+  <img
+    src=""
+  />
+  <p />
+  <p />
+  <button
+    onClick={[Function]}
+  >
+    Get new Quote
+  </button>
+</div>
+`;
