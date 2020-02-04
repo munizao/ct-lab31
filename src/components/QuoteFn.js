@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { quote } from '../services/futurama-api';
+import styles from './Quote.css';
 
 const Quote = () => {
   const [quoteObj, setQuoteObj] = useState({ quote: '', image: '', character: '' });
@@ -19,7 +20,7 @@ const Quote = () => {
   };
 
   return (
-    <div>
+    <div className = {styles.Quote}>
       <img src={quoteObj.image} /><p>{quoteObj.quote}</p><p>{quoteObj.character}</p>
       <button onClick={handleClick}>Get new Quote</button>
     </div>
