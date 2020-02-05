@@ -1,13 +1,11 @@
-export const quoteAPI = (characterName) => {
+export const quoteAPI = (characterName, numQuotes) => {
   if(characterName) {
-    return fetch(`https://futuramaapi.herokuapp.com/api/characters/${characterName.split(' ').join('-')}/1`)
-      .then(res => res.json())
-      .then(res => res[0]);
+    return fetch(`https://futuramaapi.herokuapp.com/api/characters/${characterName.split(' ').join('-')}/${numQuotes}`)
+      .then(res => res.json());
   }
   else {
-    return fetch('https://futuramaapi.herokuapp.com/api/quotes/1')
-      .then(res => res.json())
-      .then(res => res[0]);
+    return fetch(`https://futuramaapi.herokuapp.com/api/quotes/${numQuotes}`)
+      .then(res => res.json());
   }
 };
 export const charactersAPI = (page) => {

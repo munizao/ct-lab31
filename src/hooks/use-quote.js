@@ -2,15 +2,25 @@ import { quoteAPI } from '../services/futurama-api';
 
 import { useState, useEffect } from 'react';
 const useQuote = ({ characters, selectedCharacterIndex }) => {
-  const [quoteObj, setQuoteObj] = useState({ quote: '', image: '', character: '' });
+  const [quoteArray, setQuoteArray] = useState([{ quote: '', image: '', character: '' }]);
+  const [numQuotes, setNumQuotes] = useState(1);
+
   const fetchQuote = () => {
-    return quoteAPI(characters.length > 0 ? characters[selectedCharacterIndex].name : null)
+    let name = null;
+    if(selectedCharacterIndex >= 0 && characters.length > 0) {
+      name = characters[selectedCharacterIndex].name;
+    }
+    let numNumQuotes = Number(numQuotes);
+    if(isNaN(numNumQuotes)) {
+      numNumQuotes = 1;
+    }
+    return quoteAPI(name, numNumQuotes)
       .then((res) => {
         if(res) {
-          setQuoteObj(res);
+          setQuoteArray(res);
         }
         else {
-          setQuoteObj({ quote: 'No Quote Found', image: '', character: '' });
+          setQuoteArray([{ quote: 'No Quote Found', image: '', character: '' }]);
         }
       });  
   };
@@ -19,7 +29,7 @@ const useQuote = ({ characters, selectedCharacterIndex }) => {
     fetchQuote();    
   }, [selectedCharacterIndex]);
 
-  return { quoteObj, fetchQuote } ;
+  return { quoteArray, fetchQuote, numQuotes, setNumQuotes } ;
 };
 
 export default useQuote;
