@@ -13,15 +13,23 @@
   [type="radio"] {
     display: none;
   }
-  input[type="radio"]+label{ 
+  .Buttonish {
+    text-align: center;
+    width: 7em;
     font-size: .7em;
     margin: .5em;
     padding: .8em;
     border-radius: .45em;
     background-color: rgb(32, 64, 73);
-  }  
+    &:hover {
+      background-color: #382fb6;
+    }
+  }
   input[type="radio"]:checked+label{ 
     background-color: rgb(12, 144, 184);
+    &:hover {
+      background-color: #382fb6;
+    }
   }
 
   ul {
