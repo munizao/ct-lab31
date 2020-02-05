@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import usePaging from './use-paging';
 import { charactersAPI } from '../services/futurama-api';
 
 const majorCharacters = [
@@ -23,13 +24,14 @@ const useCharacters = () => {
   const [characters, setCharacters] = useState([]);
   const [selectedCharacterIndex, setSelectedCharacterIndex] = useState(-1);
   const [charactersAreMajor, setCharactersAreMajor] = useState(true);
+  const { page, nextPage, prevPage } = usePaging();
 
   const fetchCharacters = () => {
     if(charactersAreMajor) {
       setCharacters(majorCharacters);
     }
     else {
-      charactersAPI()
+      charactersAPI(page)
         .then((res) => {
           setCharacters(res);
         });  
@@ -38,9 +40,9 @@ const useCharacters = () => {
 
   useEffect(() => {
     fetchCharacters();    
-  }, [charactersAreMajor]);
+  }, [charactersAreMajor, page]);
 
-  return { characters, selectedCharacterIndex, setSelectedCharacterIndex, setCharactersAreMajor };
+  return { characters, selectedCharacterIndex, setSelectedCharacterIndex, charactersAreMajor, setCharactersAreMajor, prevPage, nextPage };
 };
 
 export default useCharacters;

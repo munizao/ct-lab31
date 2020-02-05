@@ -2,16 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './CharacterBox.css';
-import useCharacters from '../hooks/use-characters';
 
 const CharacterBox = ({ characterState }) => {
-  const { characters, selectedCharacterIndex, setSelectedCharacterIndex, setCharactersAreMajor } = characterState;
+  const { characters, selectedCharacterIndex, setSelectedCharacterIndex, charactersAreMajor, setCharactersAreMajor, page, nextPage, prevPage } = characterState;
   return (
     <div className={styles.CharacterBox}>
       <div>Select group of characters:</div>
       <div>
-        <input id="famous" type="radio" name="character-set" onChange={() => setCharactersAreMajor(true)}/><label htmlFor="famous">Major</label>
-        <input id="all" type="radio" name="character-set" onChange={() => setCharactersAreMajor(false)}/><label htmlFor="all">All</label>
+        <input id="major" type="radio" name="character-set" checked={charactersAreMajor} onChange={() => setCharactersAreMajor(true)}/><label className={styles.Buttonish} htmlFor="major">Major</label>
+        <input id="all" type="radio" name="character-set" checked={!charactersAreMajor} onChange={() => setCharactersAreMajor(false)}/><label className={styles.Buttonish} htmlFor="all">All</label>
       </div>
       <ul>
         {characters.map((character, i) => 
@@ -21,6 +20,7 @@ const CharacterBox = ({ characterState }) => {
             {character.name}
           </li>)}
       </ul>
+      <div style={charactersAreMajor ? { visibility: 'hidden' } : {}}><span onClick={prevPage} className={styles.Buttonish}>Previous</span><span onClick={nextPage} className={styles.Buttonish}>Next</span></div>
     </div>
   );
 };
