@@ -1,7 +1,15 @@
-export const quoteAPI = () => {
-  return fetch('https://futuramaapi.herokuapp.com/api/quotes/1')
-    .then(res => res.json())
-    .then(res => res[0]);
+export const quoteAPI = (characterName) => {
+  if(characterName) {
+    console.log(characterName);
+    return fetch(`https://futuramaapi.herokuapp.com/api/characters/${characterName.split(' ').join('-')}/1`)
+      .then(res => res.json())
+      .then(res => res[0]);
+  }
+  else {
+    return fetch('https://futuramaapi.herokuapp.com/api/quotes/1')
+      .then(res => res.json())
+      .then(res => res[0]);
+  }
 };
 
 export const charactersAPI = () => {
