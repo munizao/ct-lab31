@@ -11,7 +11,7 @@ export const quoteAPI = (characterName) => {
   }
 };
 export const charactersAPI = (page) => {
-  return fetch(`http://futuramaapi.herokuapp.com/api/v2/characters?page=${page}`)
+  return fetch(`https://futuramaapi.herokuapp.com/api/v2/characters?page=${page}`)
     .then(res => res.json()) // The keys on this API are all capitalized, which is stupid.
     .then(characters => {
       return characters.map(character => Object.fromEntries(Object.entries(character)
