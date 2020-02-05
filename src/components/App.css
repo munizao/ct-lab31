@@ -1,0 +1,18 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+h1 {
+  text-align: center;
+}
+
+.MainBox {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  border: .2rem solid black;
+  padding: 0px;
+  margin: 0px 20vw 0px 20vw;
+}
