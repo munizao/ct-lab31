@@ -1,0 +1,43 @@
+.CharacterBox {
+  background-color: #0d0852;
+  color: white;
+
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 0px;
+    padding: .5em;
+  }
+
+  [type="radio"] {
+    display: none;
+  }
+  input[type="radio"]+label{ 
+    font-size: .7em;
+    margin: .5em;
+    padding: .8em;
+    border-radius: .45em;
+    background-color: rgb(32, 64, 73);
+  }  
+  input[type="radio"]:checked+label{ 
+    background-color: rgb(12, 144, 184);
+  }
+
+  ul {
+    width: 20vw;
+    margin: 0px;
+    padding: 0px;
+    li {
+      margin: 0px;
+      padding: .5em;
+      list-style-type: none;
+      &:hover {
+        background-color: #382fb6;
+      }
+      &.Selected {
+        background-color: #2fb658;
+      }
+    }    
+  }
+}

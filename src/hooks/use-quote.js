@@ -1,10 +1,10 @@
 import { quoteAPI } from '../services/futurama-api';
 
 import { useState, useEffect } from 'react';
-const useQuote = (characters, index) => {
+const useQuote = ({ characters, selectedCharacterIndex }) => {
   const [quoteObj, setQuoteObj] = useState({ quote: '', image: '', character: '' });
   const fetchQuote = () => {
-    return quoteAPI(characters.length > 0 ? characters[index].name : null)
+    return quoteAPI(characters.length > 0 ? characters[selectedCharacterIndex].name : null)
       .then((res) => {
         if(res) {
           setQuoteObj(res);
@@ -17,7 +17,7 @@ const useQuote = (characters, index) => {
   
   useEffect(() => {
     fetchQuote();    
-  }, [index]);
+  }, [selectedCharacterIndex]);
 
   return { quoteObj, fetchQuote } ;
 };

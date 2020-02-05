@@ -9,24 +9,6 @@ h1 {
   border: .2rem solid black;
   padding: 0px;
   margin: 0px 20vw 0px 20vw;
-  ul {
-    width: 20vw;
-    margin: 0px;
-    padding: 0px;
-    background-color: #0d0852;
-    li {
-      margin: 0px;
-      padding: .5em;
-      list-style-type: none;
-      color: white;
-      &:hover {
-        background-color: #382fb6;
-      }
-      &.Selected {
-        background-color: #2fb658;
-      }
-    }    
-  }
   .Quote {
     width: 40vw;
     display: flex;
